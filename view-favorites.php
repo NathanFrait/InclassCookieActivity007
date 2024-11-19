@@ -1,7 +1,6 @@
 <?php
-
-
-
+session_start();
+$favorites = $_SESSION['favorites'] ?? [];
 
 ?>
 
@@ -39,14 +38,23 @@
           </tr></thead>
           <tbody>
               <?php 
-                /* // markup for sample favorite is as follows:
-                     <tr>
-                        <td><img src="images/art/square-medium/092040.jpg"></td>
-                        <td><a href="single-painting.php?id=369">Adoration in the Forest</a></td>
-                        <td><a class="ui small button" href="remove-favorites.php?id=369">Remove</a></td>
-                     </tr>
-                   // loop through all favorites and output a row for each one  
-                */
+                if (empty($favorites)) {
+                  echo "<p>No favorites yet!</p>";
+              } else {
+                  echo "<table class='ui celled table'>";
+                  echo "<thead><tr><th>Image</th><th>Title</th><th>Actions</th></tr></thead>";
+                  echo "<tbody>";
+                  foreach ($favorites as $painting) {
+                      echo "<tr>";
+                      echo "<td><img src='images/art/works/small-square/" . htmlspecialchars($painting['ImageFileName']) . ".jpg' alt='" . htmlspecialchars($painting['Title']) . "' width='100'></td>";
+                      echo "<td><a href='single-painting.php?PaintingID=" . $painting['PaintingID'] . "'>" . htmlspecialchars($painting['Title']) . "</a></td>";
+                      echo "<td><a href='remove-favorites.php?PaintingID=" . $painting['PaintingID'] . "' class='ui red button'>Remove</a></td>";
+                      echo "</tr>";
+                  }
+                  echo "</tbody>";
+                  echo "</table>";
+                  echo "<a href='remove-favorites.php?action=clear' class='ui button'>Clear All Favorites</a>";
+              }
               ?>
           </tbody>
           <tfoot class="full-width">
