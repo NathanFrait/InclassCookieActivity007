@@ -46,8 +46,8 @@ $favorites = $_SESSION['favorites'] ?? [];
                   echo "<tbody>";
                   foreach ($favorites as $painting) {
                       echo "<tr>";
-                      echo "<td><img src='images/art/works/small-square/" . htmlspecialchars($painting['ImageFileName']) . ".jpg' alt='" . htmlspecialchars($painting['Title']) . "' width='100'></td>";
-                      echo "<td><a href='single-painting.php?PaintingID=" . $painting['PaintingID'] . "'>" . htmlspecialchars($painting['Title']) . "</a></td>";
+                      echo "<td><img src='images/art/square-medium/" . htmlspecialchars($painting['ImageFileName']) . ".jpg' alt='" . htmlspecialchars($painting['Title']) . "' width='100'></td>";
+                      echo "<td><a href='single-painting.php?id=" . $painting['PaintingID'] . "'>" . htmlspecialchars($painting['Title']) . "</a></td>";
                       echo "<td><a href='remove-favorites.php?PaintingID=" . $painting['PaintingID'] . "' class='ui red button'>Remove</a></td>";
                       echo "</tr>";
                   }

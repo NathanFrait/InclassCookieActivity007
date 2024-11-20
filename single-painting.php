@@ -51,10 +51,10 @@ foreach($paintings as $p) {
                 
                 <!-- Main Info -->
                 <div class="item">
-                    <h2 class="header"><?php echo  utf8_encode($row['Title']); ?></h2>
-                    <h3 ><?php echo utf8_encode($row['FirstName'] . ' ' . $row['LastName']); ?></h3>
+                    <h2 class="header"><?php echo  custom_utf8_encode($row['Title']); ?></h2>
+                    <h3 ><?php echo custom_utf8_encode($row['FirstName'] . ' ' . $row['LastName']); ?></h3>
                       <div class="meta">
-                        <p><?php echo  utf8_encode($row['Excerpt']); ?></p>
+                        <p><?php echo  custom_utf8_encode($row['Excerpt']); ?></p>
                       </div>  
                 </div>                          
                   
